@@ -458,6 +458,29 @@
   .newsletter-form button { background: var(--forest); color: #F6F3EC; border: none; border-radius: 999px; padding: 14px 26px; font-family: var(--sans); font-weight: 700; font-size: 14px; cursor: pointer; white-space: nowrap; }
   .newsletter-form button:hover { filter: brightness(.95); }
 
+  /* FAQ accordion */
+  .faq { min-height: 100vh; background: var(--cream); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 36px; padding: 80px 40px; }
+  .faq-head { text-align: center; }
+  .faq-title { font-family: var(--serif); font-weight: 400; font-size: clamp(32px, 5vw, 56px); line-height: 1.05; letter-spacing: -.01em; color: var(--ink); margin: 12px 0 0; }
+  .faq-list { width: 100%; max-width: 760px; display: flex; flex-direction: column; gap: 14px; }
+  .faq-item { background: #E3E8DD; border-radius: 22px; transition: background .3s var(--ease), box-shadow .3s var(--ease); }
+  .faq-item.is-open { background: #FBF9F3; box-shadow: 0 24px 52px -26px rgba(51,48,42,.32); }
+  .faq-q { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 18px; background: none; border: none; cursor: pointer; text-align: left; padding: 22px 22px 22px 28px; font-family: var(--sans); }
+  .faq-qt { font-weight: 700; font-size: 16.5px; letter-spacing: .01em; color: var(--ink); }
+  .faq-toggle { flex: none; width: 40px; height: 40px; border-radius: 50%; background: #FBF9F3; display: grid; place-items: center; transition: background .3s var(--ease); }
+  .faq-toggle svg { width: 18px; height: 18px; stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; transition: transform .3s var(--ease), stroke .3s var(--ease); }
+  .faq-item.is-open .faq-toggle { background: var(--forest); }
+  .faq-item.is-open .faq-toggle svg { stroke: #FBF9F3; transform: rotate(45deg); }
+  .faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s var(--ease); }
+  .faq-a > div { overflow: hidden; }
+  .faq-item.is-open .faq-a { grid-template-rows: 1fr; }
+  .faq-a p { margin: 0; padding: 0 64px 24px 28px; color: #6E675B; font-size: 14.5px; line-height: 1.65; }
+  @media (max-width: 640px) {
+    .faq { padding: 64px 20px; }
+    .faq-q { padding: 18px 16px 18px 20px; }
+    .faq-a p { padding: 0 20px 20px; }
+  }
+
   /* Footer */
   .site-footer { background: var(--clay); color: #FBF3EA; padding: 72px 40px 30px; }
   .footer-main { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
@@ -688,7 +711,7 @@
               </div>
             </div>
           </div>
-          <a class="nav-link" href="#footer" style="color:#4F8A8F">FAQ</a>
+          <a class="nav-link" href="#faq" style="color:#4F8A8F">FAQ</a>
           <a class="nav-link" href="#" style="color:#CE6B45" data-contact>Contact</a>
         </nav>
         <div class="icon-cluster">
@@ -843,6 +866,43 @@
     </div>
   </section>
 
+  <section class="faq" id="faq">
+    <div class="faq-head">
+      <p class="sec-eyebrow">Good to know</p>
+      <h2 class="faq-title">Frequently<br>asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item is-open">
+        <button class="faq-q" aria-expanded="true">
+          <span class="faq-qt">How does the rinse-through mesh actually work?</span>
+          <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div><p>The open mesh weave lets sand, water and crumbs fall straight back out, so a quick shake at the car is usually all it takes. Nothing pools at the bottom and nothing comes home but the memories.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-qt">What sizes and styles are there?</span>
+          <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div><p>Three kid-sized shapes: the Backpack, the Crossbody and the Drawstring, each in cream, sage and clay. They are made to be worn by little ones and to last long enough to be handed down.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-qt">How do I clean and care for the bag?</span>
+          <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div><p>Rinse it under fresh water, give it a shake and hang it to air dry. No machine wash needed. The mesh and hardware are chosen to shrug off salt, sunscreen and sand day after day.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-qt">What about shipping and returns?</span>
+          <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div><p>Free shipping on orders over $120 within Australia, with easy 30 day returns on unused bags. Reach out any time through the contact form and we will sort you out.</p></div></div>
+      </div>
+    </div>
+  </section>
+
   <footer class="site-footer" id="footer">
     <div class="footer-signup">
       <div>
@@ -965,6 +1025,23 @@
           f.addEventListener('click', function () {
             document.querySelectorAll('.scf').forEach(function (x) { x.classList.remove('active'); });
             f.classList.add('active');
+          });
+        });
+      })();
+
+      // FAQ accordion (single open at a time)
+      (function () {
+        var items = [].slice.call(document.querySelectorAll('.faq-item'));
+        items.forEach(function (item) {
+          var q = item.querySelector('.faq-q');
+          q.addEventListener('click', function () {
+            var willOpen = !item.classList.contains('is-open');
+            items.forEach(function (other) {
+              other.classList.remove('is-open');
+              var oq = other.querySelector('.faq-q');
+              if (oq) oq.setAttribute('aria-expanded', 'false');
+            });
+            if (willOpen) { item.classList.add('is-open'); q.setAttribute('aria-expanded', 'true'); }
           });
         });
       })();
